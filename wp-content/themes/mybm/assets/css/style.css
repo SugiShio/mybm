@@ -1,0 +1,112 @@
+.wrapper {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.sectionTtl {
+  font-size: 2.2rem;
+  position: relative;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.sectionTtl::before {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 30px;
+  height: 5px;
+  margin: auto;
+  content: '';
+  background-color: #ff6;
+}
+
+#header {
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#header ul {
+  display: flex;
+}
+
+#header ul li {
+  width: 40px;
+}
+
+#header ul li + li {
+  margin-left: 5px;
+}
+
+#header ul li a {
+  display: block;
+  padding: 5px;
+}
+
+#menu > ul {
+  display: flex;
+  justify-content: center;
+}
+
+#menu > ul > li {
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+#menu > ul > li + li {
+  margin-left: 30px;
+}
+
+#menu > ul > li > a {
+  position: relative;
+  padding: 10px 20px;
+}
+
+#menu > ul > li > a::before {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  margin: auto;
+  content: '';
+  transition: 0.5s;
+  background-color: #ff6;
+}
+
+#menu > ul > li > a:hover::before {
+  width: 50px;
+}
+
+#footer {
+  margin-top: 50px;
+  padding: 5px 0;
+  text-align: center;
+  color: #919191;
+}
+
+#top h1 {
+  width: 400px;
+  margin: 50px auto;
+}
+
+#top .news > ul {
+  width: 400px;
+  margin: 20px auto 0;
+}
+
+#top .news > ul time {
+  display: inline-block;
+  width: 80px;
+}
+
+#top .news > ul p {
+  display: inline-block;
+}
+
+#top #menu {
+  margin-top: 50px;
+}

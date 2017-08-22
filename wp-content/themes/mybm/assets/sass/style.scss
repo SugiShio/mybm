@@ -1,0 +1,106 @@
+@import 'variables';
+
+.wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.sectionTtl {
+    font-size: 2.2rem;
+    position: relative;
+    text-align: center;
+    letter-spacing: 0.03em;
+    &::before {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 30px;
+        height: 5px;
+        margin: auto;
+        content: '';
+        background-color: $color-accent;
+    }
+}
+
+#header {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    ul {
+        display: flex;
+        li {
+            width: 40px;
+            & + li {
+                margin-left: 5px;
+            }
+            a {
+                display: block;
+                padding: 5px;
+            }
+        }
+    }
+}
+
+#menu {
+    > ul {
+        display: flex;
+        justify-content: center;
+        > li {
+            font-size: 1.5rem;
+            letter-spacing: 0.03em;
+            & + li {
+                margin-left: 30px;
+            }
+            > a {
+                position: relative;
+                padding: 10px 20px;
+                &::before {
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    left: 0;
+                    width: 0;
+                    height: 5px;
+                    margin: auto;
+                    content: '';
+                    transition: 0.5s;
+                    background-color: $color-accent;
+                }
+                &:hover::before {
+                    width: 50px;
+                }
+            }
+        }
+    }
+}
+
+#footer {
+    margin-top: 50px;
+    padding: 5px 0;
+    text-align: center;
+    color: lighten($color-text, 20%);
+}
+
+#top {
+    h1 {
+        width: 400px;
+        margin: 50px auto;
+    }
+    .news {
+        > ul {
+            width: 400px;
+            margin: 20px auto 0;
+            time {
+                display: inline-block;
+                width: 80px;
+            }
+            p {
+                display: inline-block;
+            }
+        }
+    }
+    #menu {
+        margin-top: 50px;
+    }
+}
