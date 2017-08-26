@@ -1,12 +1,27 @@
 @import 'variables';
 
+a {
+    text-decoration: underline;
+    color: rgba($color-text, 0.5);
+    transition: 0.3s;
+    &:hover {
+        background-color: $color-accent;
+    }
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 800px;
+    width: 600px;
     min-height: 100vh;
     margin: 0 auto;
+}
+
+.home {
+    .wrapper {
+        width: 800px;
+    }
 }
 
 .sectionTtl {
@@ -59,6 +74,8 @@
             > a {
                 position: relative;
                 padding: 10px 20px;
+                text-decoration: none;
+                color: $color-text;
                 &::before {
                     position: absolute;
                     top: 100%;
@@ -70,6 +87,9 @@
                     content: '';
                     transition: 0.5s;
                     background-color: $color-accent;
+                }
+                &:hover {
+                    background: none;
                 }
                 &:hover::before {
                     width: 50px;
@@ -111,8 +131,8 @@
 
 #biography {
     .image {
-        margin: 30px auto;
         width: 100%;
+        margin: 30px auto;
         > img {
             width: 100%;
             height: auto;
@@ -120,7 +140,23 @@
     }
     .body {
         text-align: center;
-        p + p {
+        p {
+            line-height: 2;
+            & + p {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+.posts {
+    .post {
+        margin: 50px 0;
+        &__ttl {
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+        &__body {
             margin-top: 20px;
         }
     }

@@ -18,4 +18,5 @@
 <footer id="footer">
     <small>&copy; 2017 Mellow Yellow Banana Moon</small>
 </footer>
+
 <?php get_footer(); ?>
