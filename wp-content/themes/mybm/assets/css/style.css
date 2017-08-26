@@ -1,7 +1,7 @@
 a {
+  transition: 0.3s;
   text-decoration: underline;
   color: rgba(94, 94, 94, 0.5);
-  transition: 0.3s;
 }
 
 a:hover {
@@ -23,6 +23,7 @@ a:hover {
 
 .sectionTtl {
   font-size: 2.2rem;
+  line-height: 2;
   position: relative;
   text-align: center;
   letter-spacing: 0.03em;
@@ -117,22 +118,73 @@ a:hover {
   margin: 50px auto;
 }
 
-#top .news > ul {
-  width: 400px;
+#top .news .post-news {
   margin: 20px auto 0;
+  display: flex;
+  justify-content: center;
 }
 
-#top .news > ul time {
+#top .news .post-news > time {
   display: inline-block;
-  width: 80px;
+  width: 70px;
 }
 
-#top .news > ul p {
+#top .news .post-news > h3 {
   display: inline-block;
+}
+
+#top .news__link {
+  margin-top: 5px;
+  text-align: center;
+}
+
+#top .news__link a {
+  position: relative;
+  display: inline-block;
+  padding: 0 15px 0 10px;
+  text-decoration: none;
+  color: #5e5e5e;
+}
+
+#top .news__link a::before {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  margin: auto;
+  content: '';
+  transform: rotate(-45deg);
+  border-right: 1px solid #5e5e5e;
+  border-bottom: 1px solid #5e5e5e;
 }
 
 #top #menu {
   margin-top: 50px;
+}
+
+#news .posts-news {
+  width: 250px;
+  margin: 50px auto 0;
+}
+
+#news .post-news {
+  margin: 10px 0;
+}
+
+#news .post-news a {
+  display: flex;
+  text-decoration: none;
+  color: #5e5e5e;
+}
+
+#news .post-news a time {
+  width: 70px;
+}
+
+#news .post-news a h3 {
+  flex: 1;
 }
 
 #biography .image {

@@ -16,16 +16,19 @@
 
     <section class="news">
         <h2 class="sectionTtl">News</h2>
-        <ul>
-            <li>
-                <time>2017.8.28</time>
-                <p>宮田泰介さんの誕生日はたしかこの辺りだった気がします！</p>
-            </li>
-            <li>
-                <time>2017.8.28</time>
-                <p>宮田泰介さんの誕生日はたしか</p>
-            </li>
-        </ul>
+        <?php query_posts('cat=' . get_cat_ID('news')); ?>
+        <?php if (have_posts()) : ?>
+            <?php if(get_the_category()[0]->slug == 'news') : ?>
+                    <div class="post-news">
+                        <time><?php echo get_the_date('Y.n.j'); ?></time>
+                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                    </div>
+            <?php endif ?>
+        <p class="news__link">
+            <a href="<?php echo get_category_link(get_cat_ID('news')); ?>">more</a>
+        </p>
+        <?php endif; ?>
+        <?php wp_reset_query(); ?>
     </section>
 
     <nav id="menu">

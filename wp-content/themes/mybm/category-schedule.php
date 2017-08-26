@@ -27,8 +27,6 @@
                             <?php endif; ?>
                             </p>
                         <?php endif ?>
-
-                        <a href=""></a>
                     </header>
 
                     <div class="post__body">
