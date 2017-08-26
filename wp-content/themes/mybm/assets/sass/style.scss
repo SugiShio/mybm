@@ -1,7 +1,11 @@
 @import 'variables';
 
 .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 800px;
+    min-height: 100vh;
     margin: 0 auto;
 }
 
@@ -12,8 +16,8 @@
     letter-spacing: 0.03em;
     &::before {
         position: absolute;
-        bottom: 0;
         right: 0;
+        bottom: 0;
         left: 0;
         width: 30px;
         height: 5px;
@@ -24,9 +28,9 @@
 }
 
 #header {
-    padding: 5px 0;
     display: flex;
     justify-content: space-between;
+    padding: 5px 0;
     ul {
         display: flex;
         li {
@@ -102,5 +106,22 @@
     }
     #menu {
         margin-top: 50px;
+    }
+}
+
+#biography {
+    .image {
+        margin: 30px auto;
+        width: 100%;
+        > img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .body {
+        text-align: center;
+        p + p {
+            margin-top: 20px;
+        }
     }
 }

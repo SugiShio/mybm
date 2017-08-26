@@ -31,9 +31,9 @@
     <nav id="menu">
         <ul>
             <li><a href="">SCHEDLUE</a></li>
-            <li><a href="">BIOGRAPHY</a></li>
+            <li><a href="./biography/">BIOGRAPHY</a></li>
             <li><a href="">DISCOGRAPHY</a></li>
-            <li><a href="">CONTACT</a></li>
+            <li><a href="./contact/">CONTACT</a></li>
         </ul>
     </nav>
 </div>
