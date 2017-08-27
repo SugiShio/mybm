@@ -25,13 +25,12 @@ a:hover {
   font-size: 2.2rem;
   line-height: 2;
   position: relative;
-  text-align: center;
+  margin-top: 50px;
   letter-spacing: 0.03em;
 }
 
 .sectionTtl::before {
   position: absolute;
-  right: 0;
   bottom: 0;
   left: 0;
   width: 30px;
@@ -64,28 +63,29 @@ a:hover {
   padding: 5px;
 }
 
-#menu > ul {
+#nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 600px;
+  margin: 0 auto 10px;
+  padding-top: 10px;
 }
 
-#menu > ul > li {
-  font-size: 1.5rem;
-  letter-spacing: 0.03em;
+#nav .menu {
+  display: flex;
 }
 
-#menu > ul > li + li {
-  margin-left: 30px;
-}
-
-#menu > ul > li > a {
+#nav .menu-item > a {
+  line-height: 40px;
   position: relative;
-  padding: 10px 20px;
+  display: block;
+  padding: 0 20px;
   text-decoration: none;
+  text-transform: uppercase;
   color: #5e5e5e;
 }
 
-#menu > ul > li > a::before {
+#nav .menu-item > a::before {
   position: absolute;
   top: 100%;
   right: 0;
@@ -98,12 +98,12 @@ a:hover {
   background-color: #ff6;
 }
 
-#menu > ul > li > a:hover {
+#nav .menu-item > a:hover {
   background: none;
 }
 
-#menu > ul > li > a:hover::before {
-  width: 50px;
+#nav .menu-item > a:hover::before {
+  width: 100%;
 }
 
 #footer {
@@ -118,10 +118,18 @@ a:hover {
   margin: 50px auto;
 }
 
+#top .news .sectionTtl {
+  text-align: center;
+}
+
+#top .news .sectionTtl::before {
+  right: 0;
+}
+
 #top .news .post-news {
-  margin: 20px auto 0;
   display: flex;
   justify-content: center;
+  margin: 20px auto 0;
 }
 
 #top .news .post-news > time {
@@ -164,6 +172,48 @@ a:hover {
   margin-top: 50px;
 }
 
+#top #menu > ul {
+  display: flex;
+  justify-content: center;
+}
+
+#top #menu > ul > li {
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+#top #menu > ul > li + li {
+  margin-left: 30px;
+}
+
+#top #menu > ul > li > a {
+  position: relative;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #5e5e5e;
+}
+
+#top #menu > ul > li > a::before {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  margin: auto;
+  content: '';
+  transition: 0.5s;
+  background-color: #ff6;
+}
+
+#top #menu > ul > li > a:hover {
+  background: none;
+}
+
+#top #menu > ul > li > a:hover::before {
+  width: 50px;
+}
+
 #news .posts-news {
   width: 250px;
   margin: 50px auto 0;
@@ -189,7 +239,7 @@ a:hover {
 
 #biography .image {
   width: 100%;
-  margin: 30px auto;
+  margin: 10px auto 30px;
 }
 
 #biography .image > img {

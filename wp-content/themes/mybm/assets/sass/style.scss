@@ -28,11 +28,10 @@ a {
     font-size: 2.2rem;
     line-height: 2;
     position: relative;
-    text-align: center;
+    margin-top: 50px;
     letter-spacing: 0.03em;
     &::before {
         position: absolute;
-        right: 0;
         bottom: 0;
         left: 0;
         width: 30px;
@@ -62,20 +61,22 @@ a {
     }
 }
 
-#menu {
-    > ul {
+#nav {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    margin: 0 auto 10px;
+    padding-top: 10px;
+    .menu {
         display: flex;
-        justify-content: center;
-        > li {
-            font-size: 1.5rem;
-            letter-spacing: 0.03em;
-            & + li {
-                margin-left: 30px;
-            }
+        &-item {
             > a {
+                line-height: 40px;
                 position: relative;
-                padding: 10px 20px;
+                display: block;
+                padding: 0 20px;
                 text-decoration: none;
+                text-transform: uppercase;
                 color: $color-text;
                 &::before {
                     position: absolute;
@@ -93,7 +94,7 @@ a {
                     background: none;
                 }
                 &:hover::before {
-                    width: 50px;
+                    width: 100%;
                 }
             }
         }
@@ -113,10 +114,16 @@ a {
         margin: 50px auto;
     }
     .news {
+        .sectionTtl {
+            text-align: center;
+            &::before {
+                right: 0;
+            }
+        }
         .post-news {
-            margin: 20px auto 0;
             display: flex;
             justify-content: center;
+            margin: 20px auto 0;
             > time {
                 display: inline-block;
                 width: 70px;
@@ -152,6 +159,41 @@ a {
     }
     #menu {
         margin-top: 50px;
+        > ul {
+            display: flex;
+            justify-content: center;
+            > li {
+                font-size: 1.5rem;
+                letter-spacing: 0.03em;
+                & + li {
+                    margin-left: 30px;
+                }
+                > a {
+                    position: relative;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    color: $color-text;
+                    &::before {
+                        position: absolute;
+                        top: 100%;
+                        right: 0;
+                        left: 0;
+                        width: 0;
+                        height: 5px;
+                        margin: auto;
+                        content: '';
+                        transition: 0.5s;
+                        background-color: $color-accent;
+                    }
+                    &:hover {
+                        background: none;
+                    }
+                    &:hover::before {
+                        width: 50px;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -179,7 +221,7 @@ a {
 #biography {
     .image {
         width: 100%;
-        margin: 30px auto;
+        margin: 10px auto 30px;
         > img {
             width: 100%;
             height: auto;

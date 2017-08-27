@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <section id="schedule">
-    <nav id="menu">
+    <nav id="nav">
         <?php wp_nav_menu( array('menu' => 'grobalNav' )); ?>
     </nav>
 
