@@ -250,3 +250,25 @@ a {
         }
     }
 }
+
+#contact {
+    .text {
+        margin-top: 50px;
+    }
+    .link {
+        margin-top: 10px;
+        li {
+            margin: 10px 0;
+            padding-left: 50px;
+            background-position: left center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        &__mail {
+            background-image: url(../img/common/mail.svg);
+        }
+        &__twitter {
+            background-image: url(../img/common/twitter.svg);
+        }
+    }
+}

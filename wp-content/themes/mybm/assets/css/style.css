@@ -271,3 +271,27 @@ a:hover {
 .posts .post__body {
   margin-top: 20px;
 }
+
+#contact .text {
+  margin-top: 50px;
+}
+
+#contact .link {
+  margin-top: 20px;
+}
+
+#contact .link li {
+  margin: 10px 0;
+  padding-left: 25px;
+  background-position: left center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#contact .link__mail {
+  background-image: url(../img/common/mail.svg);
+}
+
+#contact .link__twitter {
+  background-image: url(../img/common/twitter.svg);
+}
