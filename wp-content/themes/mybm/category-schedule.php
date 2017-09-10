@@ -1,10 +1,7 @@
 <?php get_header(); ?>
 
 <section id="schedule">
-    <nav id="nav">
-        <?php wp_nav_menu( array('menu' => 'grobalNav' )); ?>
-    </nav>
-
+    <?php get_template_part('nav') ?>
     <h2 class="sectionTtl"><?php echo single_cat_title(); ?></h2>
 
     <?php if (have_posts()) : ?>

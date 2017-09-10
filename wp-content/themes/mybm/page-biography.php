@@ -1,9 +1,8 @@
 <?php get_header(); ?>
 
 <section id="biography">
-    <nav id="nav">
-        <?php wp_nav_menu( array('menu' => 'grobalNav' )); ?>
-    </nav>
+    <?php get_template_part('nav') ?>
+    <h2 class="sectionTtl"><?php echo the_title(); ?></h2>
 
     <?php if(have_posts()): while(have_posts()): the_post();?>
         <h2 class="image">

@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Input your ID and Password."
+AuthUserFile /home/users/1/moo.jp-mimhhs/web/mybm/wp-content/themes/mybm/.htpasswd
+require valid-user

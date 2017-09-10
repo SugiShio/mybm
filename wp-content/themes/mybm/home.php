@@ -11,37 +11,40 @@
     </header>
 
     <h1>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg"" alt="メロウ・イエロー・バナナムーン">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg"" alt=" メロウ・イエロー・バナナムーン" width="400" height="400">
     </h1>
 
-    <section class="news">
-        <h2 class="sectionTtl">News</h2>
-        <?php query_posts('cat=' . get_cat_ID('news')); ?>
-        <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : the_post(); if($count++ < 1) :?>
-                <div class="post-news">
-                    <time><?php echo get_the_date('Y.n.j'); ?></time>
-                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                </div>
-            <?php endif; endwhile; ?>
-            <p class="news__link">
-                <a href="<?php echo get_category_link(get_cat_ID('news')); ?>">more</a>
-            </p>
-        <?php endif; ?>
-        <?php wp_reset_query(); ?>
-    </section>
+    <div>
+        <section class="news">
+            <h2 class="sectionTtl">News</h2>
+            <?php query_posts('cat=' . get_cat_ID('news')); ?>
+            <?php if (have_posts()) : ?>
+                <?php while (have_posts()) : the_post(); if($count++ < 1) :?>
+                    <div class="post-news">
+                        <time><?php echo get_the_date('Y.n.j'); ?></time>
+                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                    </div>
+                <?php endif; endwhile; ?>
+                <p class="news__link">
+                    <a href="<?php echo get_category_link(get_cat_ID('news')); ?>">more</a>
+                </p>
+            <?php endif; ?>
+            <?php wp_reset_query(); ?>
+        </section>
 
-    <nav id="menu">
-        <ul>
-            <li><a href="<?php echo get_category_link(get_cat_ID('schedule')); ?>">SCHEDULE</a></li>
-            <li><a href="./biography/">BIOGRAPHY</a></li>
-            <li><a href="">DISCOGRAPHY</a></li>
-            <li><a href="./contact/">CONTACT</a></li>
-        </ul>
-    </nav>
+        <nav id="menu">
+            <ul>
+                <li><a href="<?php echo get_category_link(get_cat_ID('schedule')); ?>">SCHEDULE</a></li>
+                <li><a href="./biography/">BIOGRAPHY</a></li>
+                <li><a href="./discography/">DISCOGRAPHY</a></li>
+                <li><a href="./contact/">CONTACT</a></li>
+            </ul>
+        </nav>
+    </div>
 </div>
 
 <footer id="footer">
     <small>&copy; 2017 Mellow Yellow Banana Moon</small>
 </footer>
 <?php get_footer(); ?>
+

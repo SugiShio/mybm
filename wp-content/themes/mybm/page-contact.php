@@ -1,11 +1,8 @@
 <?php get_header(); ?>
 
 <section id="contact">
-    <nav id="nav">
-        <?php wp_nav_menu( array('menu' => 'grobalNav' )); ?>
-    </nav>
-
-    <h2 class="sectionTtl">Contact</h2>
+    <?php get_template_part('nav') ?>
+    <h2 class="sectionTtl"><?php echo the_title(); ?></h2>
     <?php if(have_posts()): while(have_posts()): the_post();?>
         <div class="text"><?php the_content(); ?></div>
     <?php endwhile; endif; ?>
