@@ -299,27 +299,6 @@ a {
     }
 }
 
-#news {
-    .posts-news {
-        width: 250px;
-        margin: 50px auto 0;
-    }
-    .post-news {
-        margin: 10px 0;
-        a {
-            display: flex;
-            text-decoration: none;
-            color: $color-text;
-            time {
-                width: 70px;
-            }
-            h3 {
-                flex: 1;
-            }
-        }
-    }
-}
-
 #biography {
     .image {
         width: 100%;

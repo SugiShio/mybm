@@ -304,29 +304,6 @@ a:hover {
   }
 }
 
-#news .posts-news {
-  width: 250px;
-  margin: 50px auto 0;
-}
-
-#news .post-news {
-  margin: 10px 0;
-}
-
-#news .post-news a {
-  display: flex;
-  text-decoration: none;
-  color: #5e5e5e;
-}
-
-#news .post-news a time {
-  width: 70px;
-}
-
-#news .post-news a h3 {
-  flex: 1;
-}
-
 #biography .image {
   width: 100%;
   margin: 10px auto 30px;
