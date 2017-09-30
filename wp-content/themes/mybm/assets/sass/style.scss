@@ -201,13 +201,6 @@ a {
     flex-direction: column;
     flex: 1;
     justify-content: space-between;
-    h1 {
-        display: flex;
-        align-items: center;
-        flex: 1;
-        justify-content: center;
-        margin: 50px auto;
-    }
     .news {
         .sectionTtl {
             text-align: center;
@@ -231,7 +224,7 @@ a {
             }
         }
         &__link {
-            margin-top: 5px;
+            margin-top: 10px;
             text-align: center;
             a {
                 position: relative;
@@ -278,24 +271,29 @@ a {
 }
 
 @media screen and (min-width: $width) {
-    #top #menu > ul > li > a {
-        &::before {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            left: 0;
-            width: 0;
-            height: 5px;
-            margin: auto;
-            content: '';
-            transition: 0.5s;
-            background-color: $color-accent;
+    #top {
+        h1 {
+            margin: 50px auto;
         }
-        &:hover {
-            background: none;
-        }
-        &:hover::before {
-            width: 50px;
+        #menu > ul > li > a {
+            &::before {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                width: 0;
+                height: 5px;
+                margin: auto;
+                content: '';
+                transition: 0.5s;
+                background-color: $color-accent;
+            }
+            &:hover {
+                background: none;
+            }
+            &:hover::before {
+                width: 50px;
+            }
         }
     }
 }
@@ -303,7 +301,8 @@ a {
 @media screen and (max-width: $width) {
     #top {
         h1 {
-            width: 60%;
+            margin: 50px auto 0;
+            width: 90%;
         }
         #menu > ul {
             flex-wrap: wrap;
@@ -383,6 +382,7 @@ a {
 }
 
 .table {
+    margin: 10px 0;
     > dt {
         display: inline-block;
         margin-right: 10px;

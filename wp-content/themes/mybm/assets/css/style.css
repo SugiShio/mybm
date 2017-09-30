@@ -204,14 +204,6 @@ a:hover {
   justify-content: space-between;
 }
 
-#top h1 {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  justify-content: center;
-  margin: 50px auto;
-}
-
 #top .news .sectionTtl {
   text-align: center;
 }
@@ -240,7 +232,7 @@ a:hover {
 }
 
 #top .news__link {
-  margin-top: 5px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -291,6 +283,9 @@ a:hover {
 }
 
 @media screen and (min-width: 600px) {
+  #top h1 {
+    margin: 50px auto;
+  }
   #top #menu > ul > li > a::before {
     position: absolute;
     top: 100%;
@@ -313,7 +308,8 @@ a:hover {
 
 @media screen and (max-width: 600px) {
   #top h1 {
-    width: 60%;
+    margin: 50px auto 0;
+    width: 90%;
   }
   #top #menu > ul {
     flex-wrap: wrap;
@@ -396,6 +392,10 @@ a:hover {
     margin: 0 0 0 20px;
     flex: 1;
   }
+}
+
+.table {
+  margin: 10px 0;
 }
 
 .table > dt {
