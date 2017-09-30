@@ -35,9 +35,10 @@ a {
 
 .sectionTtl {
     font-size: 2.2rem;
-    line-height: 2;
+    line-height: 1;
     position: relative;
     margin-top: 50px;
+    padding: 5px 0;
     letter-spacing: 0.03em;
     &::before {
         position: absolute;
@@ -51,10 +52,11 @@ a {
     }
     h2 {
         font-size: 2.2rem;
-        line-height: 2;
+        line-height: 45px;
     }
     span {
         font-size: 1.2rem;
+        line-height: 1;
     }
     &__sub, &__sub a {
         line-height: 1;
@@ -213,16 +215,19 @@ a {
                 right: 0;
             }
         }
-        .post-news {
-            display: flex;
-            justify-content: center;
-            margin: 20px auto 0;
-            > time {
-                display: inline-block;
-                width: 70px;
-            }
-            > h3 {
-                display: inline-block;
+        .posts {
+            margin-top: 20px;
+            .post-news {
+                display: flex;
+                justify-content: center;
+                margin: 10px auto 0;
+                > time {
+                    display: inline-block;
+                    width: 70px;
+                }
+                > h3 {
+                    display: inline-block;
+                }
             }
         }
         &__link {
@@ -329,45 +334,53 @@ a {
     }
 }
 
-#discography {
-    .post {
-        display: flex;
+.post {
+    margin: 50px 0;
+    &__ttl {
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+    &__img {
+        margin-bottom: 10px;
+    }
+    &__body {
+        margin-top: 20px;
+    }
+    &__cont {
+        margin-top: 10px;
+    }
+    &__desc h4{
+        font-weight: bold;
+        margin: 15px 0 5px;
+    }
+    &__songList {
+        counter-reset: trackNum 0;
+        > li::before {
+            display: inline-block;
+            width: 15px;
+            counter-increment: trackNum;
+            content: counter(trackNum);
+        }
     }
 }
 
-// .posts {
-    .post {
-        margin: 50px 0;
-        &__ttl {
-            font-size: 1.6rem;
-            font-weight: bold;
-        }
-        &__body {
-            margin-top: 20px;
-        }
-        &__img {
-            width: 200px;
-        }
-        &__cont {
-            margin-left: 20px;
-            flex: 1;
-        }
-        &__desc h4 {
-            font-weight: bold;
-            margin: 15px 0 5px;
-        }
-        &__songList {
-            counter-reset: trackNum 0;
-            > li::before {
-                display: inline-block;
-                width: 15px;
-                counter-increment: trackNum;
-                content: counter(trackNum);
+@media screen and (min-width: $width) {
+    #discography {
+        .post {
+            display: flex;
+            &__ttl {
+                margin-top: 0;
             }
-
+            &__img {
+                width: 200px;
+            }
+            &__cont {
+                margin: 0 0 0 20px;
+                flex: 1;
+            }
         }
     }
-// }
+}
 
 .table {
     > dt {

@@ -2,7 +2,9 @@
 
 <section id="schedule">
     <?php get_template_part('nav') ?>
-    <h2 class="sectionTtl"><?php echo single_cat_title(); ?></h2>
+    <div class="sectionTtl">
+        <h2><?php echo single_cat_title(); ?></h2>
+    </div>
 
     <?php if (have_posts()) : ?>
         <ul class="posts">

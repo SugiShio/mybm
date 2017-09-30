@@ -2,7 +2,9 @@
 
 <section id="discography">
     <?php get_template_part('nav') ?>
-    <h2 class="sectionTtl"><?php echo single_cat_title(); ?></h2>
+    <div class="sectionTtl">
+        <h2><?php echo single_cat_title(); ?></h2>
+    </div>
 
     <?php if (have_posts()) : ?>
         <ul class="posts">
@@ -17,6 +19,7 @@
                     </p>
                     <div class="post__cont">
                         <h3 class="post__ttl"><?php the_title(); ?></h3>
+                        <h4><?php if(!empty(post_custom('Sub Title'))) : echo post_custom('Sub Title'); endif;?></h4>
                         <div class="post__desc">
                             <?php the_content(); ?>
                             <?php if(!empty(post_custom('songs'))) : ?>

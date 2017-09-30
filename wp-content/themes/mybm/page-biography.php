@@ -2,7 +2,9 @@
 
 <section id="biography">
     <?php get_template_part('nav') ?>
-    <h2 class="sectionTtl"><?php echo the_title(); ?></h2>
+    <div class="sectionTtl">
+        <h2><?php echo the_title(); ?></h2>
+    </div>
 
     <?php if(have_posts()): while(have_posts()): the_post();?>
         <h2 class="image">

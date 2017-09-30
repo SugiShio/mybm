@@ -3,7 +3,8 @@
 <section id="discography">
     <?php get_template_part('nav') ?>
     <div class="sectionTtl">
-        <?php the_title(); ?>
+        <span><?php if(!empty(post_custom('Sub Title'))) : echo post_custom('Sub Title'); endif;?></span>
+        <h2><?php the_title(); ?></h2>
     </div>
 
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>

@@ -34,9 +34,10 @@ a:hover {
 
 .sectionTtl {
   font-size: 2.2rem;
-  line-height: 2;
+  line-height: 1;
   position: relative;
   margin-top: 50px;
+  padding: 5px 0;
   letter-spacing: 0.03em;
 }
 
@@ -53,11 +54,12 @@ a:hover {
 
 .sectionTtl h2 {
   font-size: 2.2rem;
-  line-height: 2;
+  line-height: 45px;
 }
 
 .sectionTtl span {
   font-size: 1.2rem;
+  line-height: 1;
 }
 
 .sectionTtl__sub, .sectionTtl__sub a {
@@ -218,18 +220,22 @@ a:hover {
   right: 0;
 }
 
-#top .news .post-news {
-  display: flex;
-  justify-content: center;
-  margin: 20px auto 0;
+#top .news .posts {
+  margin-top: 20px;
 }
 
-#top .news .post-news > time {
+#top .news .posts .post-news {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 0;
+}
+
+#top .news .posts .post-news > time {
   display: inline-block;
   width: 70px;
 }
 
-#top .news .post-news > h3 {
+#top .news .posts .post-news > h3 {
   display: inline-block;
 }
 
@@ -339,10 +345,6 @@ a:hover {
   margin-top: 20px;
 }
 
-#discography .post {
-  display: flex;
-}
-
 .post {
   margin: 50px 0;
 }
@@ -352,17 +354,16 @@ a:hover {
   font-weight: bold;
 }
 
+.post__img {
+  margin-bottom: 10px;
+}
+
 .post__body {
   margin-top: 20px;
 }
 
-.post__img {
-  width: 200px;
-}
-
 .post__cont {
-  margin-left: 20px;
-  flex: 1;
+  margin-top: 10px;
 }
 
 .post__desc h4 {
@@ -379,6 +380,22 @@ a:hover {
   width: 15px;
   counter-increment: trackNum;
   content: counter(trackNum);
+}
+
+@media screen and (min-width: 600px) {
+  #discography .post {
+    display: flex;
+  }
+  #discography .post__ttl {
+    margin-top: 0;
+  }
+  #discography .post__img {
+    width: 200px;
+  }
+  #discography .post__cont {
+    margin: 0 0 0 20px;
+    flex: 1;
+  }
 }
 
 .table > dt {
