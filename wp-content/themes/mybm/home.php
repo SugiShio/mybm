@@ -22,7 +22,7 @@
                 <?php while (have_posts()) : the_post(); if($count++ < 1) :?>
                     <div class="post-news">
                         <time><?php echo get_the_date('Y.n.j'); ?></time>
-                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                        <h3><a href="<?php echo get_category_link(get_cat_ID('news')); ?>"><?php the_title(); ?></a></h3>
                     </div>
                 <?php endif; endwhile; ?>
                 <p class="news__link">

@@ -51,6 +51,19 @@ a:hover {
   background-color: #ff6;
 }
 
+.sectionTtl h2 {
+  font-size: 2.2rem;
+  line-height: 2;
+}
+
+.sectionTtl span {
+  font-size: 1.2rem;
+}
+
+.sectionTtl__sub, .sectionTtl__sub a {
+  line-height: 1;
+}
+
 #header {
   display: flex;
   justify-content: space-between;
@@ -326,17 +339,64 @@ a:hover {
   margin-top: 20px;
 }
 
-.posts .post {
+#discography .post {
+  display: flex;
+}
+
+.post {
   margin: 50px 0;
 }
 
-.posts .post__ttl {
+.post__ttl {
   font-size: 1.6rem;
   font-weight: bold;
 }
 
-.posts .post__body {
+.post__body {
   margin-top: 20px;
+}
+
+.post__img {
+  width: 200px;
+}
+
+.post__cont {
+  margin-left: 20px;
+  flex: 1;
+}
+
+.post__desc h4 {
+  font-weight: bold;
+  margin: 15px 0 5px;
+}
+
+.post__songList {
+  counter-reset: trackNum 0;
+}
+
+.post__songList > li::before {
+  display: inline-block;
+  width: 15px;
+  counter-increment: trackNum;
+  content: counter(trackNum);
+}
+
+.table > dt {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.table > dd {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.content > p {
+  margin-top: 10px;
 }
 
 #contact .text {
