@@ -7,16 +7,15 @@
     }
 
     //予約投稿機能を無効化
-    add_action('save_post', 'setSchedule', 99);
-    add_action('edit_post', 'setSchedule', 99);
-    function setSchedule() {
+    //予約投稿機能を無効化
+    add_action('save_post', 'futuretopublish', 99);
+    add_action('edit_post', 'futuretopublish', 99);
+    function futuretopublish() {
         global $wpdb;
-        if (is_category('schedule')) {
-            $sql = 'UPDATE `'.$wpdb->prefix.'posts` ';
-            $sql .= 'SET post_status = "publish" ';
-            $sql .= 'WHERE post_status = "future"';
-            $wpdb->get_results($sql);
-        }
+        $sql = 'UPDATE `'.$wpdb->prefix.'posts` ';
+        $sql .= 'SET post_status = "publish" ';
+        $sql .= 'WHERE post_status = "future"';
+        $wpdb->get_results($sql);
     }
 
     // 日付の近いものから表示

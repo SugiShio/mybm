@@ -26,7 +26,7 @@
                                 <h4>Track List</h4>
                                 <ul class="post__songList">
                                 <?php
-                                    $songList = split(',', post_custom('songs'));
+                                    $songList = preg_split('/,/', post_custom('songs'));
                                     foreach ($songList as $item) : ?>
                                     <li>
                                         <a href="<?php echo get_permalink($item.value); ?>">
