@@ -15,7 +15,8 @@
             self.$el.removeClass('is-open');
             self.$btn.removeClass('is-open');
 
-            self.$btn.on('click', function() {
+            self.$btn.on('click', function(e) {
+                e.stopPropagation();
                 if(self.isOpen) {
                     $(this).removeClass('is-open');
                     self.$el.removeClass('is-open');
@@ -24,6 +25,18 @@
                     $(this).addClass('is-open');
                     self.$el.addClass('is-open');
                     self.isOpen = true;
+                }
+            })
+
+            self.$el.on('click', function(e) {
+                e.stopPropagation();
+            })
+
+            $('body').on('click', function(){
+                if(self.isOpen) {
+                    self.$btn.removeClass('is-open');
+                    self.$el.removeClass('is-open');
+                    self.isOpen = false;
                 }
             })
         }

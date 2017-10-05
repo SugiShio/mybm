@@ -16,15 +16,19 @@
 
     <div>
         <section class="news">
-            <h2 class="sectionTtl">News</h2>
+            <div class="sectionTtl">
+                <h2>News</h2>
+            </div>
             <?php query_posts('cat=' . get_cat_ID('news')); ?>
             <?php if (have_posts()) : ?>
-                <?php while (have_posts()) : the_post(); if($count++ < 1) :?>
-                    <div class="post-news">
+                <ul class="posts">
+                <?php while (have_posts()) : the_post(); if($count++ < 3) :?>
+                    <li class="post-news">
                         <time><?php echo get_the_date('Y.n.j'); ?></time>
-                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                    </div>
+                        <h3><a href="<?php echo get_category_link(get_cat_ID('news')); ?>"><?php the_title(); ?></a></h3>
+                    </li>
                 <?php endif; endwhile; ?>
+                </ul>
                 <p class="news__link">
                     <a href="<?php echo get_category_link(get_cat_ID('news')); ?>">more</a>
                 </p>

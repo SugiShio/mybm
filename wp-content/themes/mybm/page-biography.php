@@ -2,11 +2,15 @@
 
 <section id="biography">
     <?php get_template_part('nav') ?>
-    <h2 class="sectionTtl"><?php echo the_title(); ?></h2>
+    <div class="sectionTtl">
+        <h2><?php echo the_title(); ?></h2>
+    </div>
 
     <?php if(have_posts()): while(have_posts()): the_post();?>
         <h2 class="image">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/biography/bandImage.jpg" alt="biography">
+            <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('large'); ?>
+            <?php endif ; ?>
         </h2>
         <div class="body">
             <?php the_content(); ?>
