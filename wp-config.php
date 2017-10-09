@@ -1,14 +1,19 @@
 <?php
 /**
- * WordPress 基本設定
+ * WordPress の基本設定
  *
- * このファイルは、MySQL、テーブル接頭辞、秘密鍵、言語、ABSPATH の設定を含みます。
- * より詳しい情報は {@link http://wpdocs.sourceforge.jp/wp-config.php_%E3%81%AE%E7%B7%A8%E9%9B%86
- * wp-config.php の編集} を参照してください。MySQL の設定情報はホスティング先より入手できます。
+ * このファイルは、インストール時に wp-config.php 作成ウィザードが利用します。
+ * ウィザードを介さずにこのファイルを "wp-config.php" という名前でコピーして
+ * 直接編集して値を入力してもかまいません。
  *
- * このファイルはインストール時に wp-config.php 作成ウィザードが利用します。
- * ウィザードを介さず、このファイルを "wp-config.php" という名前でコピーして直接編集し値を
- * 入力しても構いません。
+ * このファイルは、以下の設定を含みます。
+ *
+ * * MySQL 設定
+ * * 秘密鍵
+ * * データベーステーブル接頭辞
+ * * ABSPATH
+ *
+ * @link http://wpdocs.osdn.jp/wp-config.php_%E3%81%AE%E7%B7%A8%E9%9B%86
  *
  * @package WordPress
  */
@@ -16,43 +21,46 @@
 // 注意:
 // Windows の "メモ帳" でこのファイルを編集しないでください !
 // 問題なく使えるテキストエディタ
-// (http://wpdocs.sourceforge.jp/Codex:%E8%AB%87%E8%A9%B1%E5%AE%A4 参照)
-// を使用し必ず UTF-8 の BOM なし (UTF-8N) で保存してください。
+// (http://wpdocs.osdn.jp/%E7%94%A8%E8%AA%9E%E9%9B%86#.E3.83.86.E3.82.AD.E3.82.B9.E3.83.88.E3.82.A8.E3.83.87.E3.82.A3.E3.82.BF 参照)
+// を使用し、必ず UTF-8 の BOM なし (UTF-8N) で保存してください。
 
-// ** MySQL 設定 - こちらの情報はホスティング先から入手してください。 ** //
-/** WordPress のデータベース名 */
-define('DB_NAME', 'LAA0809232-7sur6l');
+// ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
+/** WordPress のためのデータベース名 */
+define('DB_NAME', 'wordpress');
 
-/** MySQL のユーザー名 */
-define('DB_USER', 'LAA0809232');
+/** MySQL データベースのユーザー名 */
+define('DB_USER', 'wp_user');
 
-/** MySQL のパスワード */
-define('DB_PASSWORD', '8E3cLZtb');
+/** MySQL データベースのパスワード */
+define('DB_PASSWORD', 'wp_password');
 
-/** MySQL のホスト名 (ほとんどの場合変更する必要はありません。) */
-define('DB_HOST', 'mysql112.phy.lolipop.lan');
+/** MySQL のホスト名 */
+define('DB_HOST', 'localhost');
 
-/** データベーステーブルのキャラクターセット (ほとんどの場合変更する必要はありません。) */
-define('DB_CHARSET', 'utf8');
+/** データベースのテーブルを作成する際のデータベースの文字セット */
+define('DB_CHARSET', 'utf8mb4');
 
-/** データベースの照合順序 (ほとんどの場合変更する必要はありません。) */
+/** データベースの照合順序 (ほとんどの場合変更する必要はありません) */
 define('DB_COLLATE', '');
 
 /**#@+
  * 認証用ユニークキー
  *
  * それぞれを異なるユニーク (一意) な文字列に変更してください。
- * {@link https://api.wordpress.org/secret-key/1.1/ WordPress.org の秘密鍵サービス}
- * で自動生成することもできます。
- * 後でいつでも変更して、既存のすべての cookie を無効にできます。これにより、
- * すべてのユーザーを強制的に再ログインさせることができます。
+ * {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org の秘密鍵サービス} で自動生成することもできます。
+ * 後でいつでも変更して、既存のすべての cookie を無効にできます。これにより、すべてのユーザーを強制的に再ログインさせることになります。
  *
  * @since 2.6.0
  */
-define('AUTH_KEY', '>!)4.IxWQM__q5f-<^vo-y$QQwEnYCYSKOLf;rTaTmB4tb332{/+O({xBz}/K22r');
-define('SECURE_AUTH_KEY', '<rv{])1AN(r8mw-?bu6KR6%9vcCR%+Y4Tq"vy+4fyE|%svzg`3[g$xK1e}@75<Tu');
-define('LOGGED_IN_KEY', 'vzG<HU:$HE!@#%EmYxV$yIZZ6E,q7sl9(`N,jk2>w,wtv/%@tvi$9*f7K,q+smiC');
-define('NONCE_KEY', 'j_k}n"*#.sw%]Axj$l$D+f-.>"8s:[CbVp?^$4|tt}C!@M}oqK60OG6BrSzwSxYG');
+define('AUTH_KEY',         'LO^/yr3Y01j^-v?-)6[~T8jooj.:&U{`jo6&Ol2@4Nw%|OO&z7)K?S2$C+096NRL');
+define('SECURE_AUTH_KEY',  'lxwT{+<+o9v~:./>.&[0,!QNJ;[8|SZNb[bg7VRz^<i}sRBF/uDvViB(Lyrts,nO');
+define('LOGGED_IN_KEY',    '/!--}{vNUi7 qiR5&+FgM3cC9 O@thyy8Zt2X662 G$RtS= `.XAo<^r?cq>K.3U');
+define('NONCE_KEY',        '#aQ9o{}a?izNl(<fyXB~q}s^gc+<^3[HUuf QaJn8.,)Q{[1>Q[-5}.vL2v;;<z ');
+define('AUTH_SALT',        'F<a*#A4h$53ssnB}qMw)Oz6{?,buus>lqxXtfYQ<0L3%x>5l+rIscLmMj(;[=%wb');
+define('SECURE_AUTH_SALT', 'iN&(T`q6D!^;Z:Y{vE+xv?-nj;#)lj]f{zo!e#1Z`yauM1#jSA|O4f1P>L]l?[A=');
+define('LOGGED_IN_SALT',   '^idhX n 5+J].sD&[;ajg3?xPv.N&URKuRII%_a*sFn9GF6J2j*VPPGJWSgLmM.B');
+define('NONCE_SALT',       'gZ++KqUs@YA)x4oY{g9;/0n_6k~R*#X&;6@lxJu[%]e3Zn#95IL1?yXQdayD>(Q5');
+
 /**#@-*/
 
 /**
@@ -61,23 +69,25 @@ define('NONCE_KEY', 'j_k}n"*#.sw%]Axj$l$D+f-.>"8s:[CbVp?^$4|tt}C!@M}oqK60OG6BrSz
  * それぞれにユニーク (一意) な接頭辞を与えることで一つのデータベースに複数の WordPress を
  * インストールすることができます。半角英数字と下線のみを使用してください。
  */
-$table_prefix  = 'wp2_';
+$table_prefix  = 'wp_';
 
 /**
- * ローカル言語 - このパッケージでは初期値として 'ja' (日本語 UTF-8) が設定されています。
+ * 開発者へ: WordPress デバッグモード
  *
- * WordPress のローカル言語を設定します。設定した言語に対応する MO ファイルが
- * wp-content/languages にインストールされている必要があります。例えば de.mo を
- * wp-content/languages にインストールし WPLANG を 'de' に設定することでドイツ語がサポートされます。
+ * この値を true にすると、開発中に注意 (notice) を表示します。
+ * テーマおよびプラグインの開発者には、その開発環境においてこの WP_DEBUG を使用することを強く推奨します。
+ *
+ * その他のデバッグに利用できる定数については Codex をご覧ください。
+ *
+ * @link http://wpdocs.osdn.jp/WordPress%E3%81%A7%E3%81%AE%E3%83%87%E3%83%90%E3%83%83%E3%82%B0
  */
-define('WPLANG', 'ja');
+define('WP_DEBUG', false);
 
-// 編集が必要なのはここまでです ! WordPress でブログをお楽しみください。
+/* 編集が必要なのはここまでです ! WordPress でブログをお楽しみください。 */
 
 /** Absolute path to the WordPress directory. */
-if (!defined('ABSPATH')) {
-    define('ABSPATH', dirname(__FILE__) . '/');
-}
+if ( !defined('ABSPATH') )
+	define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
