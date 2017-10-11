@@ -1,3 +1,0 @@
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^mimhhs\.moo\.jp\/mybm [NC]
-RewriteRule ^(.*) http://mellowyellowbananamoon.tokyo/$1 [R=301,L]
