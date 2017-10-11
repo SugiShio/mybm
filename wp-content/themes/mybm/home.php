@@ -39,9 +39,9 @@
         <nav id="menu">
             <ul>
                 <li><a href="<?php echo get_category_link(get_cat_ID('schedule')); ?>">SCHEDULE</a></li>
+                <li><a href="<?php echo get_category_link(get_cat_ID('videos')) ?>">VIDEOS</a></li>
                 <li><a href="<?php echo get_permalink(get_page_by_path('biography')->ID) ?>">BIOGRAPHY</a></li>
                 <li><a href="<?php echo get_category_link(get_cat_ID('discography')) ?>">DISCOGRAPHY</a></li>
-                <li><a href="<?php echo get_category_link(get_cat_ID('videos')) ?>">VIDEOS</a></li>
                 <li><a href="<?php echo get_permalink(get_page_by_path('contact')->ID) ?>">CONTACT</a></li>
             </ul>
         </nav>
