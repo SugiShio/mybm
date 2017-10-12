@@ -12,9 +12,7 @@
                 <?php get_template_part('post') ?>
                 <li class="post">
                     <h3 class="post__ttl"><?php the_title(); ?></h3>
-                    <iframe id="ytplayer" type="text/html" width="540" height="303.75"
-src="https://www.youtube.com/embed/<?php echo post_custom('Video ID') ?>?<?php if($cnt++<1) : ?>autoplay=1&<?php endif; ?>playsinline=1&rel=0&showinfo=0&color=white"
-frameborder="0" allowfullscreen></iframe>
+                    <iframe id="ytplayer" type="text/html" width="540" height="303.75" src="https://www.youtube.com/embed/<?php echo post_custom('Video ID') ?>?<?php if($cnt++<1) : ?>autoplay=1&<?php endif; ?>playsinline=1&rel=0&showinfo=0&color=white" frameborder="0" allowfullscreen></iframe>
                     <p><?php the_content() ?></p>
                 </li>
             <?php endwhile; ?>

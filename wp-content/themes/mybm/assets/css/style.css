@@ -8,6 +8,16 @@ a:hover {
   background-color: #ff6;
 }
 
+iframe {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  iframe {
+    height: auto;
+  }
+}
+
 .wrapper {
   position: relative;
   display: flex;
@@ -204,6 +214,10 @@ a:hover {
   justify-content: space-between;
 }
 
+#top .news {
+  margin-top: 50px;
+}
+
 #top .news .sectionTtl {
   text-align: center;
 }
@@ -258,6 +272,18 @@ a:hover {
   border-bottom: 1px solid #5e5e5e;
 }
 
+#top .video {
+  margin-top: 50px;
+}
+
+#top .video h2 {
+  font-size: 1.8rem;
+}
+
+#top .video iframe {
+  margin: 10px 0;
+}
+
 #top #menu {
   margin-top: 50px;
 }
@@ -280,7 +306,7 @@ a:hover {
 @media screen and (min-width: 600px) {
   #top h1 {
     width: 400px;
-    margin: 50px auto;
+    margin: 30px auto;
   }
   #top #menu > ul {
     display: flex;
@@ -308,8 +334,8 @@ a:hover {
 
 @media screen and (max-width: 600px) {
   #top h1 {
-    margin: 50px auto 0;
     width: 90%;
+    margin: 50px auto 0;
   }
 }
 
@@ -368,8 +394,8 @@ a:hover {
 .post__songList > li::before {
   display: inline-block;
   width: 15px;
-  counter-increment: trackNum;
   content: counter(trackNum);
+  counter-increment: trackNum;
 }
 
 @media screen and (min-width: 600px) {
@@ -383,8 +409,8 @@ a:hover {
     width: 200px;
   }
   #discography .post__cont {
-    margin: 0 0 0 20px;
     flex: 1;
+    margin: 0 0 0 20px;
   }
 }
 

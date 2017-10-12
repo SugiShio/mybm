@@ -9,6 +9,15 @@ a {
     }
 }
 
+iframe {
+    max-width: 100%;
+}
+@media screen and (max-width: $width) {
+    iframe {
+        height: auto;
+    }
+}
+
 .wrapper {
     position: relative;
     display: flex;
@@ -202,6 +211,7 @@ a {
     flex: 1;
     justify-content: space-between;
     .news {
+        margin-top: 50px;
         .sectionTtl {
             text-align: center;
             &::before {
@@ -248,6 +258,15 @@ a {
             }
         }
     }
+    .video {
+        margin-top: 50px;
+        h2 {
+            font-size: 1.8rem;
+        }
+        iframe {
+            margin: 10px 0;
+        }
+    }
     #menu {
         margin-top: 50px;
         > ul {
@@ -272,7 +291,7 @@ a {
     #top {
         h1 {
             width: 400px;
-            margin: 50px auto;
+            margin: 30px auto;
         }
         #menu > ul {
             display: flex;
@@ -304,8 +323,8 @@ a {
 @media screen and (max-width: $width) {
     #top {
         h1 {
-            margin: 50px auto 0;
             width: 90%;
+            margin: 50px auto 0;
         }
     }
 }
@@ -345,7 +364,7 @@ a {
     &__cont {
         margin-top: 10px;
     }
-    &__desc h4{
+    &__desc h4 {
         font-weight: bold;
         margin: 15px 0 5px;
     }
@@ -354,12 +373,11 @@ a {
         > li::before {
             display: inline-block;
             width: 15px;
-            counter-increment: trackNum;
             content: counter(trackNum);
+            counter-increment: trackNum;
         }
     }
 }
-
 @media screen and (min-width: $width) {
     #discography {
         .post {
@@ -371,8 +389,8 @@ a {
                 width: 200px;
             }
             &__cont {
-                margin: 0 0 0 20px;
                 flex: 1;
+                margin: 0 0 0 20px;
             }
         }
     }
