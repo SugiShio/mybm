@@ -13,6 +13,6 @@ wp-content/plugins/hello.php
 
 /.htaccess
 /license.txt
-/readme.html
+/readme.*
 /sitemap.xml
 /sitemap.xml.gz
