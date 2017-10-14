@@ -16,3 +16,4 @@ wp-content/plugins/hello.php
 /readme.*
 /sitemap.xml
 /sitemap.xml.gz
+readme.*
