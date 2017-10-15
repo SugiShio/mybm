@@ -39,7 +39,8 @@
         <section class="video">
             <?php $video = get_page_by_path('featuredvideo') ?>
             <h2><?php echo $video->post_title ?></h2>
-            <iframe id="ytplayer" type="text/html" width="740" height="416.25" src="https://www.youtube.com/embed/<?php echo get_post_custom(30)['Video ID'][0] ?>?autoplay=1&playsinline=1&rel=0&showinfo=0&color=white" frameborder="0" allowfullscreen></iframe>
+            <iframe id="ytplayer" type="text/html" width="740" height="416.25" src="https://www.youtube.com/embed/<?php echo get_post_meta($video->ID)['Video ID'][0] ?>?autoplay=1&playsinline=1&rel=0&showinfo=0&color=white" frameborder="0" allowfullscreen></iframe>
+
             <p><?php echo $video->post_content ?></p>
         </section>
 
