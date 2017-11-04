@@ -19,7 +19,6 @@
             <div class="sectionTtl">
                 <h2>News</h2>
             </div>
-            <?php query_posts('cat=' . get_cat_ID('news')); ?>
             <?php if (have_posts()) : ?>
                 <ul class="posts">
                 <?php while (have_posts()) : the_post(); if($count++ < 3) :?>
