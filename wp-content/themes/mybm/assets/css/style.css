@@ -459,3 +459,61 @@ iframe {
 #contact .link__twitter {
   background-image: url(../img/common/twitter.svg);
 }
+
+#errorPage {
+  text-align: center;
+}
+
+#errorPage .errorHead {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+#errorPage .errorHead::before {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 5px;
+  margin: auto;
+  content: '';
+  background-color: #ff6;
+}
+
+#errorPage .errorHead h2 {
+  font-size: 4rem;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+}
+
+#errorPage > p {
+  margin-top: 30px;
+}
+
+#errorPage .link {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#errorPage .link a {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px 0 15px;
+  text-decoration: none;
+  color: #5e5e5e;
+}
+
+#errorPage .link a::before {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  margin: auto;
+  content: '';
+  transform: rotate(135deg);
+  border-right: 1px solid #5e5e5e;
+  border-bottom: 1px solid #5e5e5e;
+}
