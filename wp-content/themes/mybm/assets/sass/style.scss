@@ -490,5 +490,14 @@ iframe {
             }
         }
     }
+}
 
+.nav-links {
+    .page-numbers {
+        font-size: 1.6rem;
+
+        & + .page-numbers {
+            margin-left: 5px;
+        }
+    }
 }

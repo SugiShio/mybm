@@ -36,6 +36,7 @@
             <?php endwhile; ?>
         </ul>
     <?php endif; ?>
+    <?php include('_pager.php'); ?>
 </section>
 
 <footer id="footer">

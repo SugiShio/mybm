@@ -517,3 +517,11 @@ iframe {
   border-right: 1px solid #5e5e5e;
   border-bottom: 1px solid #5e5e5e;
 }
+
+.nav-links .page-numbers {
+  font-size: 1.6rem;
+}
+
+.nav-links .page-numbers + .page-numbers {
+  margin-left: 5px;
+}
