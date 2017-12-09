@@ -1,5 +1,26 @@
 <?php
-    add_theme_support('post-thumbnails');
+    function mybm_setup() {
+        // <title>の挿入
+        add_theme_support('title-tag');
+
+        // アイキャッチ画像有効化
+        add_theme_support('post-thumbnails');
+
+        // カスタムメニュー
+        // register_nav_menus();
+    }
+    add_action('after_setup_theme', 'mybm_setup');
+
+    function mybm_scripts() {
+        wp_enqueue_style('mybm-reset', get_template_directory_uri() . '/assets/css/reset.css');
+        wp_enqueue_style('mybm-style', get_template_directory_uri() . '/assets/css/style.css');
+        wp_enqueue_script('jQuery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+        wp_enqueue_script('velocity', get_template_directory_uri() . '/assets/js/velocity.min.js');
+        wp_enqueue_script('mybm-nav', get_template_directory_uri() . '/assets/js/nav.js');
+    }
+    add_action('wp_enqueue_scripts', 'mybm_scripts');
+
+
     add_theme_support('menus');
 
     function shortenUrl($url) {
