@@ -41,10 +41,8 @@
                 </li>
             <?php endwhile; ?>
         </ul>
-        <section id="modal">
-            <p></p>
-        </section>
     <?php endif; ?>
+    <?php include('_pager.php'); ?>
 </section>
 
 <footer id="footer">

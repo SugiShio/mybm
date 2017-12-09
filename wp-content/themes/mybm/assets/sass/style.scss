@@ -436,3 +436,68 @@ iframe {
         }
     }
 }
+
+#errorPage {
+    text-align: center;
+    .errorHead {
+        position: relative;
+        padding-bottom: 20px;
+
+        &::before {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 5px;
+            margin: auto;
+            content: '';
+            background-color: $color-accent;
+        }
+
+        h2 {
+            font-size: 4rem;
+            line-height: 1.4;
+            letter-spacing: 0.1em;
+        }
+    }
+
+    > p {
+        margin-top: 30px;
+    }
+
+    .link {
+        margin-top: 10px;
+        text-align: center;
+        a {
+            position: relative;
+            display: inline-block;
+            padding: 0 10px 0 15px;
+            text-decoration: none;
+            color: $color-text;
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 5px;
+                bottom: 0;
+                width: 4px;
+                height: 4px;
+                margin: auto;
+                content: '';
+                transform: rotate(135deg);
+                border-right: 1px solid $color-text;
+                border-bottom: 1px solid $color-text;
+            }
+        }
+    }
+}
+
+.nav-links {
+    .page-numbers {
+        font-size: 1.6rem;
+
+        & + .page-numbers {
+            margin-left: 5px;
+        }
+    }
+}
