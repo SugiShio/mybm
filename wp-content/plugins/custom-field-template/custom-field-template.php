@@ -5,7 +5,7 @@ Plugin URI: http://wpgogo.com/development/custom-field-template.html
 Description: This plugin adds the default custom fields on the Write Post/Page.
 Author: Hiroaki Miyashita
 Author URI: http://wpgogo.com/
-Version: 2.3.7
+Version: 2.3.8
 Text Domain: custom-field-template
 Domain Path: /
 */
@@ -15,7 +15,7 @@ This program is based on the rc:custom_field_gui plugin written by Joshua Sigar.
 I appreciate your efforts, Joshua.
 */
 
-/*  Copyright 2008 -2016 Hiroaki Miyashita
+/*  Copyright 2008 -2018 Hiroaki Miyashita
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -3471,8 +3471,8 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 			if ( $after_list ) : $output .= $after_list . "\n"; endif;
 			return do_shortcode($output);
 		endif;
-		
-		if ( is_numeric($format) && $output = $options['shortcode_format'][$format] ) :
+
+		if ( is_numeric($format) && !empty($options['shortcode_format'][$format]) && $output = $options['shortcode_format'][$format] ) :
 			$data = $this->get_post_meta($post_id);
 			$output = stripcslashes($output);
 			
@@ -3622,7 +3622,7 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 									case 'textfield':
 									case 'textarea':
 										if ( !empty($rval['class']) ) $class = ' class="' . $rval['class'] . '"'; 
-										$replace_val[$rkey] .= '<input type="text" name="cftsearch[' . rawurlencode($key) . '][' . $rkey . '][]" value="' . esc_attr($_REQUEST['cftsearch'][rawurlencode($key)][$rkey][0]) . '"' . $class . ' />';
+										$replace_val[$rkey] .= '<input type="text" name="cftsearch[' . rawurlencode($key) . '][' . $rkey . '][]" value="' . (isset($_REQUEST['cftsearch'][rawurlencode($key)][$rkey][0]) ? esc_attr($_REQUEST['cftsearch'][rawurlencode($key)][$rkey][0]) : '') . '"' . $class . ' />';
 										break;		
 									case 'checkbox':
 										if ( !empty($rval['class']) ) $class = ' class="' . $rval['class'] . '"'; 
@@ -3761,12 +3761,12 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 			$output = '<form method="get" action="'.get_option('home').'/" id="cftsearch'.(int)$format.'">' . "\n";
 			foreach( $fields as $field_key => $field_val) :
 				foreach( $field_val as $key => $val) :
-					if ( $val['search'] == true ) :
+					if ( isset($val['search']) && $val['search'] == true ) :
 						if ( !empty($val['label']) && !empty($options['custom_field_template_replace_keys_by_labels']) )
 							$label = stripcslashes($val['label']);
 						else $label = $key;
 						$output .= '<dl>' ."\n";
-						if ( $val['hideKey'] != true) :
+						if ( !isset($val['hideKey']) || $val['hideKey'] != true) :
 							$output .= '<dt><label>' . $label . '</label></dt>' ."\n";
 						endif;
 
@@ -3775,33 +3775,33 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 							case 'text':
 							case 'textfield':
 							case 'textarea':
-								if ( $val['class'] ) $class = ' class="' . $val['class'] . '"'; 
-								$output .= '<dd><input type="text" name="cftsearch[' . rawurlencode($key) . '][' . $rkey . '][]" value="' . esc_attr($_REQUEST['cftsearch'][rawurlencode($key)][0][0]) . '"' . $class . ' /></dd>';
+								if ( !empty($val['class']) ) $class = ' class="' . $val['class'] . '"'; 
+								$output .= '<dd><input type="text" name="cftsearch[' . rawurlencode($key) . '][' . $key . '][]" value="' . (isset($_REQUEST['cftsearch'][rawurlencode($key)][0][0]) ? esc_attr($_REQUEST['cftsearch'][rawurlencode($key)][0][0]) : '') . '"' . $class . ' /></dd>';
 								break;		
 							case 'checkbox':
-								unset($checked);
-								if ( $val['class'] ) $class = ' class="' . $val['class'] . '"';
-								if ( is_array($_REQUEST['cftsearch'][rawurlencode($key)]) ) 
+								$checked = '';
+								if ( !empty($val['class']) ) $class = ' class="' . $val['class'] . '"';
+								if ( isset($_REQUEST['cftsearch'][rawurlencode($key)]) && is_array($_REQUEST['cftsearch'][rawurlencode($key)]) ) 
 									foreach ( $_REQUEST['cftsearch'][rawurlencode($key)] as $values )
 										if ( $val['value'] == $values[0] ) $checked = ' checked="checked"';
-								$output .= '<dd><label><input type="checkbox" name="cftsearch[' . rawurlencode($key) . '][' . $rkey . '][]" value="' . esc_attr($val['value']) . '"' . $class . $checked . ' /> ';
-								if ( $val['valueLabel'] )
+								$output .= '<dd><label><input type="checkbox" name="cftsearch[' . rawurlencode($key) . '][' . $key . '][]" value="' . esc_attr($val['value']) . '"' . $class . $checked . ' /> ';
+								if ( !empty($val['valueLabel']) )
 									$output .= stripcslashes($val['valueLabel']);
 								else
 									$output .= stripcslashes($val['value']);
 								$output .= '</label></dd>' . "\n";
 								break;
 							case 'radio':
-								if ( $val['class'] ) $class = ' class="' . $val['class'] . '"'; 
+								if ( !empty($val['class']) ) $class = ' class="' . $val['class'] . '"'; 
 								$values = explode( '#', $val['value'] );
-								$valueLabel = explode( '#', $val['valueLabel'] );
+								$valueLabel = isset($val['valueLabel']) ? explode( '#', $val['valueLabel'] ) : '';
 								$i=0;
 								foreach ( $values as $metaval ) :
-									unset($checked);
+									$checked = '';
 									$metaval = trim($metaval);
-									if ( $_REQUEST['cftsearch'][rawurlencode($key)][0][0] == $metaval ) $checked = 'checked="checked"';
-									$output .= '<dd><label>' . '<input type="radio" name="cftsearch[' . rawurlencode($key) . '][' . $rkey . '][]" value="' . esc_attr($metaval) . '"' . $class . $checked . ' /> ';			
-									if ( $val['valueLabel'] )
+									if ( isset($_REQUEST['cftsearch'][rawurlencode($key)][0][0]) && $_REQUEST['cftsearch'][rawurlencode($key)][0][0] == $metaval ) $checked = 'checked="checked"';
+									$output .= '<dd><label>' . '<input type="radio" name="cftsearch[' . rawurlencode($key) . '][' . $key . '][]" value="' . esc_attr($metaval) . '"' . $class . $checked . ' /> ';			
+									if ( !empty($val['valueLabel']) )
 										$output .= stripcslashes(trim($valueLabel[$i]));
 									else
 										$output .= stripcslashes($metaval);
@@ -3810,19 +3810,19 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 								endforeach;
 								break;
 							case 'select':
-								if ( $val['class'] ) $class = ' class="' . $val['class'] . '"'; 
+								if ( !empty($val['class']) ) $class = ' class="' . $val['class'] . '"'; 
 								$values = explode( '#', $val['value'] );
-								$valueLabel = explode( '#', $val['valueLabel'] );
-								$output .= '<dd><select name="cftsearch[' . rawurlencode($key) . '][' . $rkey . '][]"' . $class . '>';
+								$valueLabel = isset($val['valueLabel']) ? explode( '#', $val['valueLabel'] ) : '';
+								$output .= '<dd><select name="cftsearch[' . rawurlencode($key) . '][' . $key . '][]"' . $class . '>';
 								$output .= '<option value=""></option>';
 								$i=0;
 								foreach ( $values as $metaval ) :
-									unset($selected);
+									$selected = '';
 									$metaval = trim($metaval);
-									if ( $_REQUEST['cftsearch'][rawurlencode($key)][0][0] == $metaval ) $selected = 'selected="selected"';
+									if ( isset($_REQUEST['cftsearch'][rawurlencode($key)][0][0]) && $_REQUEST['cftsearch'][rawurlencode($key)][0][0] == $metaval ) $selected = 'selected="selected"';
 									else $selected = "";
 									$output .= '<option value="' . esc_attr($metaval) . '"' . $selected . '>';			
-									if ( $val['valueLabel'] )
+									if ( !empty($val['valueLabel']) )
 										$output .= stripcslashes(trim($valueLabel[$i]));
 									else
 										$output .= stripcslashes($metaval);
@@ -3928,7 +3928,7 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 			endforeach;
 		endif;
 		
-		if ( $_REQUEST['s'] ) :
+		if ( isset($_REQUEST['s']) ) :
 			$where .= ' AND (';
 			if ( function_exists('mb_split') ) :
 				$s = mb_split('\s', $_REQUEST['s']);
@@ -3947,7 +3947,7 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 			$where .= ') ';
 		endif;
 
-		if ( is_array($_REQUEST['cftcategory_in']) ) :
+		if ( isset($_REQUEST['cftcategory_in']) && is_array($_REQUEST['cftcategory_in']) ) :
 			$ids = get_objects_in_term($_REQUEST['cftcategory_in'], 'category');
 			if ( is_array($ids) && count($ids) > 0 ) :
 				$in_posts = "'" . implode("', '", $ids) . "'";
@@ -3977,8 +3977,8 @@ jQuery("#edButtonPreview").trigger("click"); }' . "\n";*/
 	}
 
 	function custom_field_template_posts_join($sql) {
-		if ( !in_array($_REQUEST['orderby'], array('post_author', 'post_date', 'post_title', 'post_modified', 'menu_order', 'post_parent', 'ID')) ):
-			if ( (strtoupper($_REQUEST['order']) == 'ASC' || strtoupper($_REQUEST['order']) == 'DESC') && !empty($_REQUEST['orderby']) ) :
+		if ( !empty($_REQUEST['orderby']) && !in_array($_REQUEST['orderby'], array('post_author', 'post_date', 'post_title', 'post_modified', 'menu_order', 'post_parent', 'ID')) ):
+			if ( (strtoupper($_REQUEST['order']) == 'ASC' || strtoupper($_REQUEST['order']) == 'DESC') ) :
 				global $wpdb;
 
 				$sql = $wpdb->prepare(" LEFT JOIN `" . $wpdb->postmeta . "` AS meta ON (`" . $wpdb->posts . "`.ID = meta.post_id AND meta.meta_key = %s)", $_REQUEST['orderby']); 

@@ -3,8 +3,8 @@ Contributors: Hiroaki Miyashita
 Donate link: http://wpgogo.com/development/custom-field-template.html
 Tags: custom field, custom fields, custom, fields, field, template, meta, custom field template, custom post type
 Requires at least: 2.1
-Tested up to: 4.5.2
-Stable tag: 2.3.7
+Tested up to: 4.9.4
+Stable tag: 2.3.8
 License: GPLv2 or later
 
 The Custom Field Template plugin extends the functionality of custom fields.
@@ -89,6 +89,8 @@ If you have translated into your language, please let me know.
 
 * [Japanese Custom Field Template Manual](http://ja.wpcft.com/)
 
+Are you interested in other plugins? See the following site [CMS x WP](https://www.cmswp.jp/).
+
 == Installation ==
 
 1. Copy the `custom-field-template` directory into your `wp-content/plugins` directory
@@ -111,6 +113,9 @@ See the default template and modify it.
 4. Auto Hook of `the_content()` in the option page of this plugin may help you do this. You can use [cft] shortcodes here. You can switch the cft formats in each category.
 
 == Changelog ==
+
+= 2.3.8 =
+* Code cleaning.
 
 = 2.3.7 =
 * Bugfix: image output in the cft shortcode with the format attribute. 
