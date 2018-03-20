@@ -47,7 +47,7 @@
             $query->set('order', 'ASC');
             $query->set('date_query', array(
                         array(
-                            'after' => date('Y') . '-' . date('m') . '-' . date('d')
+                            'after' => date('Y') . '-' . date('m') . '-' . (date('d')-1)
                         ),
                         'inclusive' => true,
                     )
